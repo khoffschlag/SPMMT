@@ -1,5 +1,18 @@
 # SPMMT
-Study Program Module Manual Transcription 
+
+---
+
+Study Program Module Manual Transcription
+
+---
+
+SPMMT allows you to transcribe information from an educational module manual file into a pandas dataframe
+(and xlsx if specified).
+
+SPMMT can be used for transcription of educational module manuals if each module's details are
+in tabular form. The expected table format is that the most-left column specifies the categories
+(e.g., 'ECTS', 'Type of Exam') and the column on the right next contains the actual values
+(e.g., '12 Credits', 'Oral exam').
 
 # Installation
 Run the following command in order to install the package:
