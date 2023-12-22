@@ -7,4 +7,4 @@ Run the following command in order to install the package:
 
 # Examples
 
-1. > python spmmt.py "Module Number*" --start_page 11 --output_xlsx tuebingen_ML.xlsx
+1. > python spmmt.py PATH_TO_PDF "Module Number*" --start_page 11 --output_xlsx tuebingen_ML.xlsx
