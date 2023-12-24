@@ -5,7 +5,7 @@ with open('requirements.txt', encoding='utf-8') as f_obj:
 
 setup(
     name='SPMMT',
-    version='0.1.0',
+    version='0.1.1',
     author='Kevin Hoffschlag',
     description='Transcribe information from educational module manual to pandas dataframe (and xlxs) with SPMMT.',
     url='https://github.com/khoffschlag/SPMMT',

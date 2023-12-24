@@ -56,12 +56,19 @@ def transcribe(file, module_start, output_xlsx=None, columns={}, start_page=0, e
     document = docx.Document(docx_file)
     module_start_pattern = re.compile(module_start)
     modules = []
+    failed_module_transcriptions = 0
 
     print('Starting transcription...')
     for table in document.tables:
         for row in table.rows:
             key_cell = row.cells[0].text  # left-most cell containing category (e.g., 'ECTS')
-            value_cell = row.cells[1].text  # cell containing value for category (e.g., '12 Credits')
+            try:
+                value_cell = row.cells[1].text  # cell containing value for category (e.g., '12 Credits')
+            except IndexError:
+                if len(modules[-1].keys()) > 1:
+                    del modules[-1]
+                failed_module_transcriptions += 1
+
             # Remove special characters like arrows or other non-alphanumeric characters if needed
             key_cell = preprocess_cell(key_cell)
             value_cell = preprocess_cell(value_cell)
@@ -81,6 +88,7 @@ def transcribe(file, module_start, output_xlsx=None, columns={}, start_page=0, e
     df = pd.DataFrame(modules)
     print('Finished transcription!')
     print(f'Found {len(modules)} modules and {len(df.columns)} categories!')
+    print(f'{failed_module_transcriptions} module transcriptions failed')
     print('-'*10)
     print('Found categories:')
     print(df.columns)
