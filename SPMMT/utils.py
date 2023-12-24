@@ -14,7 +14,7 @@ def preprocess_cell(cell_content):
         str: Text content of table cell without any special characters
 
     """
-    cell_content = re.sub(r'[^\w\s:/]', '', cell_content)
+    cell_content = re.sub(r'[^\w\s:/,]', '', cell_content)
     cell_content = re.sub(r'\n', ' ', cell_content)
     cell_content = re.sub(r'\t', ' ', cell_content)
     cell_content = cell_content.strip()
