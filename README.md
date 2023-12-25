@@ -28,6 +28,39 @@ and pass the resulting docx to SPMMT.
 (i.e., multiple cells underneath each other in the column next to a key-cell, belonging to the key-cell).
 In these cases, it makes sense to preprocess the files manually before transferring them to SPMMT.
 
+# Usage
+
+You can use SPMMT via CLI or in your Python code.
+
+For the CLI usage:
+
+```
+usage: spmmt.py [-h] [--output_xlsx OUTPUT_XLSX] [--columns COLUMNS]
+                [--start_page START_PAGE] [--end_page END_PAGE]
+                [--pages PAGES]
+                file module_start
+
+Transcribe information from educational module manual to pandas dataframe (and
+xlxs) with SPMMT.
+
+positional arguments:
+  file                  Path to the input DOCX or PDF file.
+  module_start          Regex pattern identifying the beginning of a module
+                        description (will search only in the most-left cells of
+                        table).
+
+options:
+  -h, --help            show this help message and exit
+  --output_xlsx OUTPUT_XLSX
+                        Path to xlsx file where the results should be stored
+                        in.
+  --columns COLUMNS     Mapping left-most cell values to column names.
+  --start_page START_PAGE Starting page number for PDF to DOCX conversion.
+  --end_page END_PAGE   Ending page number for PDF to DOCX conversion.
+  --pages PAGES         List of page indices for PDF to DOCX conversion.
+                        Has priority over --start_page/--end_page!
+```
+
 # CLI examples
 
 1. > python spmmt.py PATH_TO_PDF "Module Number*" --start_page 11 --output_xlsx tuebingen_ML.xlsx
