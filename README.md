@@ -19,7 +19,7 @@ First you need to make sure that Git and Python 3.9 (or a newer Python 3 version
 
 Afterwards, run the following command in your terminal in order to install SPMMT:
 
-> pip install git+https://github.com/khoffschlag/SPMMT.git
+> git clone https://github.com/khoffschlag/SPMMT.git && cd SPMMT && pip install .
 
 # Usage
 
